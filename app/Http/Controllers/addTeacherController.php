@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Student;
+use App\Models\Teacher;
 use Illuminate\Http\Request;
 
-class addstudentcontroller extends Controller
+class addTeacherController extends Controller
 {
     public function index(){
-        $student = Student::create([
+        $teacher = Teacher::create([
             'fname' => request()->get('fname', ''),
             'lname' => request()->get('lname', ''),
             'address' => request()->get('address', ''),
@@ -17,9 +17,7 @@ class addstudentcontroller extends Controller
             'province' => request()->get('province', ''),
         ]);
 
-    return redirect()->route('student')->with('success', 'Sucessfully Registered!');
+    return redirect()->route('teacher')->with('success', 'Sucessfully Registered!');
 
     }
 }
-
-

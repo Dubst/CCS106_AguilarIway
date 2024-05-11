@@ -1,8 +1,11 @@
 <?php
 
 use App\Http\Controllers\addstudentcontroller;
+use App\Http\Controllers\addTeacherController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeacherController;
+use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +33,20 @@ Route::post('/addStudent', [ addstudentcontroller::class, 'index'])->name('addSt
 Route::get('/addstudent', function (){
     return view('addStudent');
 });
+
+Route::get('/edit/{id}', [StudentController::class, 'show']);
+Route::post('/edit/{id}', [StudentController::class, 'cover'])->name('editstudent');
+
+
+
+//teacher
+Route::get('/teacher', [ TeacherController::class, 'index'])->name('teacher');
+
+Route::post('/addTeacher', [ addTeacherController::class, 'index'])->name('addteacher.create');
+
+Route::get('/addteacher', function (){
+    return view('addTeacher');
+});
+Route::get('/editteacher/{id}', [TeacherController::class, 'show']);
+Route::post('/editteacher/{id}', [TeacherController::class, 'update']);
+

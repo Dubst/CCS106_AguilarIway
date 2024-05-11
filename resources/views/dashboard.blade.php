@@ -35,12 +35,21 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="/student">List</a></li>
                   <li><a class="dropdown-item" href="/addstudent">Add</a></li>
-                  <li><a class="dropdown-item" href="#">Edit</a></li>
+
                 </ul>
               </div>
           </div>
           <div class="col">
-            <button type="button" class="btn btn-primary">Teacher</button>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Teacher
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="/teacher">List</a></li>
+                  <li><a class="dropdown-item" href="/addteacher">Add</a></li>
+
+                </ul>
+              </div>
           </div>
           <div class="col">
             <button type="button" class="btn btn-primary">Enrollment</button>

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\students;
+use App\Http\Requests\StudentRequest;
+use App\Models\Student;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -20,9 +21,25 @@ class StudentController extends Controller
             'province' => 'Bohol',
         ]];
         return view('student', [
-            'students' => students::all(),
+            'students' => Student::all(),
             'hd_students' => $hcd_students
         ]);
     }
+
+    public function show($id)
+    {
+        $student = Student::findorfail($id);
+        return view('/editStudent', compact('student'));
+    }
+
+    public function cover(StudentRequest $request, $id){  //mura ranig Request $request pero instead of default naa nay gihatag unsay naas request which is makit.an ras StudentRequest specifically
+
+        $validated = $request->validated();
+        $info = Student::findorfail($id);
+        $info->update($validated);
+        $request->session()->regenerate();
+        return redirect('/student')->with('success', "Successfully Edited");
+    }
+
 }
 

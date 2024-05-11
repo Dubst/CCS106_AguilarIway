@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Student</title>
+    <title>Teacher</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
@@ -22,28 +22,16 @@
 
           </tr>
         </thead>
-    @foreach($hd_students as $hd_student)
-        <tr>
-            <th scope="row">{{$hd_student['id']}}</th>
-            <td>{{$hd_student['fname']}}</td>
-            <td>{{$hd_student['lname']}}</td>
-            <td>{{$hd_student['address']}}</td>
-            <td>{{$hd_student['birthdate']}}</td>
-            <td>{{$hd_student['city']}}</td>
-            <td>{{$hd_student['province']}}</td>
-
-          </tr>
-    @endforeach
-    @foreach($students as $student)
+    @foreach($teachers as $teacher)
           <tr>
-            <th scope="row">{{$student->id}}</th>
-            <td>{{$student->fname}}</td>
-            <td>{{$student->lname}}</td>
-            <td>{{$student->address}}</td>
-            <td>{{$student->birthdate}}</td>
-            <td>{{$student->city}}</td>
-            <td>{{$student->province}}</td>
-            <td><a  href="/edit/{{$student->id}}"class='btn btn-primary btn-sm'>Edit</a></td>
+            <th scope="row">{{$teacher->id}}</th>
+            <td>{{$teacher->fname}}</td>
+            <td>{{$teacher->lname}}</td>
+            <td>{{$teacher->address}}</td>
+            <td>{{$teacher->birthdate}}</td>
+            <td>{{$teacher->city}}</td>
+            <td>{{$teacher->province}}</td>
+            <td><a  href="/editteacher/{{$teacher->id}}"class='btn btn-primary btn-sm'>Edit</a></td>
 
           </tr>
           @endforeach
